@@ -1,12 +1,18 @@
-function tryRemoveFormArray(arr, Y) {
-    let newArr = []
-    for(let i=0; i<arr.length; i++){
-        if(arr[i]==Y){
-            arr.splice(arr[i],1)
-            newArr = arr
-        }else {
-            return arr;
+let arr=[1,3,4,2,5,6,8,7,9]
+function tryRemoveFromArray(arr,index){
+    if(index>(arr.length-1)){
+        return arr
+    }
+    let result=[]
+    for(let i=0;i<arr.length;i++){
+        if(i<index){
+            result[i]=arr[i]
+        }else if(i==index){
+            continue
+        }else{
+            result[i-1]=arr[i]
         }
-    }console.log(newArr)
+    }
+    return result
 }
-tryRemoveFormArray([1,2,3],2)
+console.log(tryRemoveFromArray(arr,5))
